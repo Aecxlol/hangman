@@ -52,18 +52,6 @@ int main(int argc, char** argv)
             hiddenWord[i] = 0;
         }
 
-        printf("\n\nRANDOM WORD : %s\n\n", randomWord);
-
-        for(i = 0; i < strlen(randomWord); i++){
-            if(randomWord[i] == 'a'){
-                printf("a");
-            }else{
-                printf("*");
-            }
-        }
-
-        printf("\n\n");
-
         printf("*Le dictionaire a bien ete charge !*\n\n");
         printf("--MENU--\n");
         printf("1 - Jouer\n");
