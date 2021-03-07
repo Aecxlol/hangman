@@ -1,6 +1,9 @@
 #ifndef MAIN_H_INCLUDED
 #define MAIN_H_INCLUDED
-#define ARRAY_SIZE 50
 #define WORD_MAX_SIZE 20
+#define TRUE 1
+#define FALSE 0
+
+int hasUserWon(char* hiddenWord, char* randomWord);
 
 #endif // MAIN_H_INCLUDED
