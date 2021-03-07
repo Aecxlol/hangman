@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1614984521 source:d:\cpp-project\opc\pendu\main.c
+1615121717 source:d:\cpp-project\opc\pendu\main.c
 	<stdio.h>
 	<stdlib.h>
+	<ctype.h>
 	"./libs/main.h"
 
 1614957141 d:\cpp-project\opc\pendu\libs\main.h

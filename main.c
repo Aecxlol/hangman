@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "./libs/main.h"
 
-int main()
+int main(int argc, char** argv)
 {
 
-    int choice = 0, lives = 10, nbWords = 0, count = 0, randomWordIndex = 0;
+    int choice = 0, lives = 10, nbWords = 0, count = 0, randomWordIndex = 0, i = 0, wordSize = 0;
     const char* relativeFilePath = "dictionary/dictionary.txt";
-    char randomWord[WORD_MAX_SIZE] = "", stringC[WORD_MAX_SIZE] = "";
+    char randomWord[WORD_MAX_SIZE] = "", stringC[WORD_MAX_SIZE] = "", userLetter = 0;
+    char* test = NULL;
+    int* hiddenWord = NULL;
+
     FILE* file = NULL;
 
     file = fopen(relativeFilePath, "r");
@@ -35,9 +39,30 @@ int main()
             }
         }
 
-        printf("RANDOM WORD : %s\n", randomWord);
-
         fclose(file);
+
+        wordSize = strlen(randomWord);
+        hiddenWord = malloc(wordSize * sizeof(int));
+
+        if(hiddenWord == NULL){
+            exit(0);
+        }
+
+        for(i = 0; i < wordSize; i++){
+            hiddenWord[i] = 0;
+        }
+
+        printf("\n\nRANDOM WORD : %s\n\n", randomWord);
+
+        for(i = 0; i < strlen(randomWord); i++){
+            if(randomWord[i] == 'a'){
+                printf("a");
+            }else{
+                printf("*");
+            }
+        }
+
+        printf("\n\n");
 
         printf("*Le dictionaire a bien ete charge !*\n\n");
         printf("--MENU--\n");
@@ -50,9 +75,25 @@ int main()
         switch(choice) {
             case 1:
                 printf("\nBievenue dans le jeu du Pendu !\n\n");
-                printf("Il vous reste %d vies\n", lives);
-                printf("Quel est le mot secret ? %s \n", randomWord);
-                printf("Proposez une lettre : ");
+                while(lives > 0){
+                    printf("\nIl vous reste %d vies\n", lives);
+                    printf("Quel est le mot secret ? ");
+                    for(i = 0; i < wordSize - 1; i++){
+                        if(randomWord[i] == toupper(userLetter)){
+                            printf("%c", toupper(userLetter));
+                        }else {
+                            printf("*");
+                        }
+                    }
+                    printf("\nProposez une lettre : ");
+
+                    scanf("%s", &userLetter);
+
+                    if(strchr(randomWord, toupper(userLetter)) == NULL){
+                        lives--;
+                        printf("\n->La lettre %c ne se trouve pas dans le mot a trouver. Vous perdez une vie.\n", userLetter);
+                    }
+                }
                 break;
 
             case 2:
