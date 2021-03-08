@@ -4,6 +4,5 @@
 #define TRUE 1
 #define FALSE 0
 
-int hasUserWon(char* hiddenWord, char* randomWord);
 
 #endif // MAIN_H_INCLUDED
