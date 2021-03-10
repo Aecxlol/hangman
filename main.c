@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include "./libs/main.h"
 
+
+int doubling(a);
 int main(int argc, char** argv)
 {
 
@@ -70,7 +72,7 @@ int main(int argc, char** argv)
             while(lives > 0){
 
                 if(lettersToFind == 0){
-                    printf("\n***Felicitations vous avez gagne ! Le mot a trouver ete : %s\n", randomWord);
+                    printf("\n***Felicitations vous avez gagne ! Le mot a trouver etait : %s\n", randomWord);
                     exit(0);
                 }
 
@@ -102,7 +104,7 @@ int main(int argc, char** argv)
                 }
             }
 
-            printf("\nVous avez perdu :( le mot a trouver ete : %s", randomWord);
+            printf("\nVous avez perdu :( le mot a trouver etait : %s", randomWord);
             break;
 
         case 2:
