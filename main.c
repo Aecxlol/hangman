@@ -73,6 +73,7 @@ int main(int argc, char** argv)
 
                 if(lettersToFind == 0){
                     printf("\n***Felicitations vous avez gagne ! Le mot a trouver etait : %s\n", randomWord);
+                    free(hiddenWord);
                     exit(0);
                 }
 
@@ -105,6 +106,7 @@ int main(int argc, char** argv)
             }
 
             printf("\nVous avez perdu :( le mot a trouver etait : %s", randomWord);
+            free(hiddenWord);
             break;
 
         case 2:
